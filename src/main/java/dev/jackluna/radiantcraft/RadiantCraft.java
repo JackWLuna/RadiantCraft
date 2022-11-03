@@ -1,9 +1,14 @@
 package dev.jackluna.radiantcraft;
 
 import com.mojang.logging.LogUtils;
+import dev.jackluna.radiantcraft.item.ModItems;
+import dev.jackluna.radiantcraft.item.custom.ShardbladeItem;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -27,6 +32,8 @@ public class RadiantCraft
     {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -48,5 +55,23 @@ public class RadiantCraft
         {
 
         }
+
+
     }
+
+    @SubscribeEvent
+    public static void honorbladePowers(TickEvent.PlayerTickEvent e) {
+
+        if (e.player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof ShardbladeItem) {
+            e.player.getAbilities().mayfly = true;
+            e.player.onUpdateAbilities();
+
+        } else {
+            e.player.getAbilities().mayfly = false;
+            e.player.onUpdateAbilities();
+
+        }
+    }
+
+
 }
