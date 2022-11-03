@@ -1,6 +1,7 @@
 package dev.jackluna.radiantcraft.item;
 
 import dev.jackluna.radiantcraft.RadiantCraft;
+import dev.jackluna.radiantcraft.item.custom.ShardbladeItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
@@ -18,7 +19,7 @@ public class ModItems {
     //Registers the default shardblade as an item, and assigns it to the misc tab for now
     public static final RegistryObject<Item> SHARDBLADE_DEFAULT =
             ITEMS.register("shardblade_default",
-                    () -> new SwordItem(Tiers.NETHERITE, 10, 5f,
+                    () -> new ShardbladeItem(
                             new Item.Properties().tab(CreativeModeTab.TAB_MISC).stacksTo(1)));
 
     //Adds the item register / block register to the event bus for the mod

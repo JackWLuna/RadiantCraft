@@ -59,19 +59,20 @@ public class RadiantCraft
 
     }
 
-    @SubscribeEvent
-    public static void honorbladePowers(TickEvent.PlayerTickEvent e) {
-
-        if (e.player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof ShardbladeItem) {
-            e.player.getAbilities().mayfly = true;
-            e.player.onUpdateAbilities();
-
-        } else {
-            e.player.getAbilities().mayfly = false;
-            e.player.onUpdateAbilities();
-
-        }
-    }
+//    @SubscribeEvent
+//    public static void honorbladePowers(TickEvent.PlayerTickEvent e) {
+//
+//        if(e.player.getItemInHand(InteractionHand.MAIN_HAND).getItem() instanceof ShardbladeItem sb) {
+//            e.player.getAbilities().mayfly = true;
+//            e.player.sendSystemMessage(Component.literal("Holding"));
+//        } else {
+//            e.player.getAbilities().mayfly = false;
+//            e.player.sendSystemMessage(Component.literal("Not Holding"));
+//
+//        }
+//        e.player.onUpdateAbilities();
+//
+//    }
 
 
 }
