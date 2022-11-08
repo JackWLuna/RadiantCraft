@@ -1,4 +1,10 @@
 {
-  "item.radiantcraft.shardblade_default": "Deadeye Shardblade"
+  "item.radiantcraft.shardblade_default": "Deadeye Shardblade",
+
+  "key.category.radiantcraft": "RadiantCraft",
+
+  "key.radiantcraft.primary_surge": "Primary Surge",
+
+  "key.radiantcraft.secondary_surge": "Secondary Surge"
 
 }

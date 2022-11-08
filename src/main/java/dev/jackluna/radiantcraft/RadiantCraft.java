@@ -3,6 +3,7 @@ package dev.jackluna.radiantcraft;
 import com.mojang.logging.LogUtils;
 import dev.jackluna.radiantcraft.item.ModItems;
 import dev.jackluna.radiantcraft.item.custom.ShardbladeItem;
+import dev.jackluna.radiantcraft.networking.ModMessages;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.level.block.Blocks;
@@ -41,6 +42,10 @@ public class RadiantCraft
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
+        event.enqueueWork(() -> {
+            ModMessages.register();
+
+        });
         // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
